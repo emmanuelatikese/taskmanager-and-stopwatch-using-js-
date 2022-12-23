@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .containerTimer{
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: 200px;
+            border-radius: 10px;
+            margin-right: auto;
+            margin-left:auto;
+            margin-top: 400px;
+            margin-bottom: auto;
+            border: 1px;
+            background: rgba(53, 78, 174, 0.716);
+            padding-top: 40px;
+        }
+        .timeContainer{
+            text-align: center;
+            font-size: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .button-container{
+            margin-left: auto;
+            margin-right:auto;
+            margin-top:20px;
+            
+        }
+        button{
+            width: 100px;
+            height:50px;
+            border-radius: 5px;
+            cursor: pointer;
+            border:none;
+            transition: 2s;
+        }
+        button:hover{
+            background: rgba(53, 78, 174, 0.716);
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class='containerTimer'>
+
+    <div class="timeContainer">
+        00:00:00
+    </div>
+
+    <div class="button-container">
+       <button class="button-class" id="play"> play</button>
+       <button class="button-class" id="reset">reset</button> 
+        
+    </div>
+        
+
+    </div>
+    <script src="timer.js">
+    </script>
+</body>
+</html>

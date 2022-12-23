@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: cursive;
+        }
+        .container{
+            margin-top: 100px;
+            margin-bottom: auto;
+            margin-left: auto;
+            margin-right:auto;
+            width:600px;
+            height: 250px;
+            background-color: lightblue;
+            border-radius: 10px;
+            padding:10px;
+            display: flex;
+            flex-direction: column;
+
+        }
+        h1{
+            text-align: center;
+            
+        }
+        input[type='text']{
+            outline: none;
+            width: 400px;
+            margin-left: auto;
+            margin-right:auto;
+            height: 50px;
+            border:none;
+            border-radius: 8px;
+            padding:10px;
+            font-size: 20px;
+        }
+        .add-btn{
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:10px;
+        }
+
+        button{
+            
+            width:90px;
+            height: 45px;
+            border:none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+        .list-container{
+            display: flex;
+            flex-direction: row;
+            width:600px;
+            height: 70px;
+            background-color: lightblue;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:10px;
+            margin-bottom: auto;
+            border-radius: 10px;
+            padding:10px;
+            gap:8px;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .btn-list{
+            margin-top: 10px;
+        }
+        .container-co{
+            display: flex;
+            flex-direction: column;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        <input type='text' placeholder="Add todo...." name="input-list" id="input-list"/>
+        <button class="add-btn">Add</button>
+    </div>
+    <div class="container-co">
+        
+
+    </div>
+    
+    <script>
+        const inputValue = document.querySelector('#input-list')
+        const Add = document.querySelector('.add-btn')
+        
+
+        const ListContainer = document.querySelector('.container-co')
+
+
+        Add.addEventListener('click', ()=>{
+            let Complete = document.createElement('button')
+            Complete.setAttribute('id', 'complete-btn')
+
+            
+            let Delete = document.createElement('button')
+            Delete.setAttribute('id', 'delete-btn')
+
+            Complete.innerHTML = 'Complete'
+            Delete.innerHTML = 'Delete'
+
+            let display = document.createElement('p')
+                display.setAttribute('id', 'display')
+
+                if(inputValue.value != ''){
+                const newList = document.createElement('div')
+                newList.classList.add('list-container')
+
+                display.innerHTML= inputValue.value
+
+                newList.appendChild(display)
+
+                newList.appendChild(Complete)
+                newList.appendChild(Delete)
+                
+
+                ListContainer.appendChild(newList)
+                inputValue.value = ''
+                
+                }
+                else{
+                    alert('Enter the name of the task')
+                }
+
+        let textStatus;
+        Complete.addEventListener('click', ()=>{
+            if(!textStatus){
+                display.style.textDecoration = 'line-through';
+                Complete.innerHTML = 'Not complete'
+                textStatus = 1
+                
+            }
+            else{
+                display.style.textDecoration = 'none'
+                Complete.innerHTML = 'Complete'
+                textStatus = null
+                
+            }
+            
+
+        })
+
+        Delete.addEventListener('click', (e)=>{
+            let target = e.target
+            
+            target.parentElement.remove()
+        })
+          
+            
+
+        })
+
+
+
+    </script>
+
+</body>
+</html>
